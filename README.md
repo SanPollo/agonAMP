@@ -14,6 +14,8 @@
 - [Building](#building)
 - [Licence](#licence)
 
+<br />
+
 ![image](images/pattern.png)
 
 ## About
@@ -26,6 +28,8 @@ For more information regarding the reusable libraries, see [lib/README.md](lib/R
 
 agonAMP was developed and tested in MOS 3.0.2, and VDP 2.16.0.
 
+[Index](#index)
+
 ---
 
 ## Requirements
@@ -36,6 +40,8 @@ agonAMP was developed and tested in MOS 3.0.2, and VDP 2.16.0.
  
 - A screen mode with at least 80 columns, 24 rows, and 16 colours: modes `0`, `3`, `4`, `24`, `27` and `28`. If specified in the configuration file, the screen mode is used. Otherwise it starts in the current mode. `Z` and `X` change the mode while agonAMP runs. The screen mode it was started in is restored on exit.
 
+[Index](#index)
+
 ---
 
 ## Installing and Running
@@ -44,11 +50,15 @@ Copy `agonamp.bin` to `/bin` on the SD card. If you want agonAMP to be able to s
 
 Running `agonamp` without any arguments loads the program, and displays the files in the current directory, or, if agonAMP saves its configuration, in the directory the browser was showing when it was last closed (see [Settings](#settings)). It can also be run by specifying a music file or an `.m3u` playlist as an argument.
 
+[Index](#index)
+
 ---
 
 ## Obtaining Music Files
 
 I found the [ZXART Music](https://zxart.ee/music/search) archive to be the best source of music files to play on agonAMP.
+
+[Index](#index)
 
 ---
 
@@ -71,6 +81,8 @@ I found the [ZXART Music](https://zxart.ee/music/search) archive to be the best 
 | YM register dumps | `.ym` | YM2, YM3, YM3b, YM5 and YM6, packed (LHA `-lh5-`) or not. Title and author (YM5, YM6), clock, frame rate and loop point used. |
 
 PT3, PSG, YM, VTX and AY files are recognised by their contents. The other module formats have no signature, so their files must have the right extension; the header is then checked for sense.
+
+[Index](#index)
 
 ---
 
@@ -106,6 +118,8 @@ The bottom row lists the main keys. Pressing `H` shows them all.
 | `Up`, `Down`, `PgUp`, `PgDn`, `Home`, `End` | Move through the list |
 | `V` | Show or hide the spectrum analyser (screens of 40 rows or more) |
 | `Z`, `X` | Previous or next screen mode, in the order `0`, `4`, `24`, `28`. |
+
+[Index](#index)
 
 ---
 
@@ -153,6 +167,8 @@ The bottom row lists the main keys. Pressing `H` shows them all.
 
 - **Colours:** agonAMP sends VDU 20 at start-up, so the screen mode's own colours are used whatever palette changes were made before it ran, then sets its colour theme; it sends VDU 20 again on exit.
 
+[Index](#index)
+
 ---
 
 ## Settings
@@ -169,6 +185,8 @@ If the file `/config/agonamp/agonamp.conf` exists, its settings are used at star
 | `directory=/` | The directory the file browser was showing on exit, where it starts the next time. It is passed over without a message, and the browser starts in the current directory, if it is not an absolute path (starting with `/`) to a directory that can be opened, or is longer than 298 characters. MOS's current directory is not changed, so a relative path given as an argument is still taken from the directory agonAMP is run from |
 
 Other lines, such as `#` comments, are ignored, as are settings that are out of range or malformed. Every setting is given its default before the file is read, so one that is missing, out of range or malformed keeps it: the analyser on, shuffle off, the OCP theme, the screen mode and volume as they were when agonAMP was started, and the browser in the current directory. LF and CR LF line endings are accepted, and the last line need not have one; the file is written with LF line endings and none after its last line. The file is rewritten on exit, so comments and unknown lines are not kept.
+
+[Index](#index)
 
 ---
 
@@ -220,6 +238,8 @@ Other lines, such as `#` comments, are ignored, as are settings that are out of 
 
 - **Damaged files:** files are checked as far as their formats allow, but not every kind of damage has been tried.
 
+[Index](#index)
+
 ---
 
 ## Building
@@ -230,8 +250,12 @@ The same sources build on a PC and on the Agon with [ez80asm 2.3](https://github
 
 - **On the Agon:** copy `src` and `lib` side by side (for example `/agonamp/src` and `/agonamp/lib`) and put `ez80asm.bin` in `/bin`. Then `cd /agonamp/src` and run `ez80asm -m agonamp.asm agonamp.bin`. The `-m` option is required.
 
+[Index](#index)
+
 ---
 
 ## Licence
 
 agonAMP and its sound library are under the zlib licence; see [LICENSE](./LICENSE).
+
+[Index](#index)
